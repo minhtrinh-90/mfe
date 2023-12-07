@@ -43,7 +43,7 @@ export default function App() {
                 {!isSignedIn && <Redirect to="/" />}
                 <DashboardApp />
               </Route>
-              <Route exact path="/">
+              <Route path="/">
                 <MarketingApp isSignedIn={isSignedIn} />
               </Route>
             </Suspense>
