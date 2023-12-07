@@ -8,7 +8,7 @@ import {
 import Signin from "./components/Signin";
 import Signup from "./components/Signup";
 
-export default ({ history }) => {
+export default ({ history, onSignedIn }) => {
   const generateClassName = createGenerateClassName({
     productionPrefix: "au"
   });
@@ -17,8 +17,12 @@ export default ({ history }) => {
     <Router history={history}>
       <StylesProvider generateClassName={generateClassName}>
         <Switch>
-          <Route path="/auth/signin" component={Signin} />
-          <Route path="/auth/signup" component={Signup} />
+          <Route path="/auth/signin">
+            <Signin onSignedIn={onSignedIn} />
+          </Route>
+          <Route path="/auth/signup">
+            <Signup onSignedIn={onSignedIn} />
+          </Route>
         </Switch>
       </StylesProvider>
     </Router>
